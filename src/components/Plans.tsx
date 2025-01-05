@@ -199,7 +199,7 @@ export function Plans() {
               transition={{ duration: 0.8 }}
               className="text-center mb-12"
             >
-              <h1 className="text-4xl font-bold text-red-800 mb-4">Dragoon Dedicated Hosting - VPS Plans</h1>
+              <h1 className="text-4xl font-bold text-red-800 mb-4">Rivalhosting Dedicated Hosting - VPS Plans</h1>
               <p className="text-red-900 text-lg">Choose the perfect VPS plan for your hosting needs</p>
             </motion.div>
             
