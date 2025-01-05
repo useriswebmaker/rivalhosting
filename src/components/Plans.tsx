@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { MinecraftPlans } from './minecraft/MinecraftPlans';
+import { DomainPlans } from './domains/DomainPlans';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Custom Icons
@@ -170,7 +171,7 @@ export function Plans() {
     <section className="min-h-screen bg-gradient-to-b from-red-50 to-red-100">
       <div className="max-w-7xl mx-auto px-4 py-16">
         <Tabs defaultValue="vps" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 bg-red-100 mb-8">
+          <TabsList className="grid w-full grid-cols-3 bg-red-100 mb-8">
             <TabsTrigger 
               value="vps"
               className="data-[state=active]:bg-red-700 data-[state=active]:text-white"
@@ -182,6 +183,12 @@ export function Plans() {
               className="data-[state=active]:bg-red-700 data-[state=active]:text-white"
             >
               Minecraft Plans
+            </TabsTrigger>
+            <TabsTrigger 
+              value="domains"
+              className="data-[state=active]:bg-red-700 data-[state=active]:text-white"
+            >
+              Domain Plans
             </TabsTrigger>
           </TabsList>
 
@@ -205,6 +212,10 @@ export function Plans() {
 
           <TabsContent value="minecraft">
             <MinecraftPlans />
+          </TabsContent>
+
+          <TabsContent value="domains">
+            <DomainPlans />
           </TabsContent>
 
           <motion.div 
