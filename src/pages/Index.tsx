@@ -1,13 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Particles from 'react-tsparticles';
+import { loadSlim } from "tsparticles-slim";
+import type { Engine } from 'tsparticles-engine';
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Check, Server, Shield, Zap, HeartPulse, Headphones, Clock, Cpu, HardDrive, Network, Lock, Banknote, Rocket, Menu, X, Mail, MessageCircle, MapPin } from 'lucide-react';
+
+// Components imports
+import { Navbar } from '../components/Navbar';
+import { Home } from '../components/Home';
+import { Plans } from '../components/Plans';
+import { Features } from '../components/Features';
+import { Contact } from '../components/Contact';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <Home />
+      <Plans />
+      <Features />
+      <Contact />
+    </>
   );
 };
 
