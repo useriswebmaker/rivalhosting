@@ -70,32 +70,45 @@ function PlanCard({ plan, index }: { plan: any; index: number }) {
       <Dialog open={showModal} onOpenChange={setShowModal}>
         <DialogContent className="bg-white">
           <DialogHeader>
-            <DialogTitle className="text-red-700">Contact Us</DialogTitle>
-            <DialogDescription>
-              To proceed with your chosen plan, please contact us through one of the following methods:
-            </DialogDescription>
+            <DialogTitle className="text-red-700">Payment Details</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
-            <p>
-              <strong>Discord:</strong>{' '}
-              <a 
-                href="https://discord.gg/rivalnodes" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-red-700 hover:text-red-800 underline"
+            <div className="flex flex-col items-center gap-4">
+              <img 
+                src="https://cdn.discordapp.com/attachments/1325075159727734947/1325739962913652766/barrier_ka_QR.png?ex=677ce30e&is=677b918e&hm=f8d2cbb2cece5c85eef0c86fb82db0bcb944eea20f2171eaac87a623c2e9e631&"
+                alt="Payment QR Code"
+                className="w-64 h-64 object-contain"
+              />
+              <p className="text-sm text-gray-600">Scan QR code to make payment</p>
+              <div className="space-y-4">
+                <p>
+                  <strong>Discord:</strong>{' '}
+                  <a 
+                    href="https://discord.gg/rivalnodes" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-red-700 hover:text-red-800 underline"
+                  >
+                    Join our Discord server
+                  </a>
+                </p>
+                <p>
+                  <strong>Email:</strong>{' '}
+                  <a 
+                    href="mailto:barrieryadav@gmail.com"
+                    className="text-red-700 hover:text-red-800 underline"
+                  >
+                    barrieryadav@gmail.com
+                  </a>
+                </p>
+              </div>
+              <Button 
+                className="mt-4"
+                onClick={() => window.open('https://discord.com/channels/1307274930852724757/1307274931590926352', '_blank')}
               >
-                Join our Discord server
-              </a>
-            </p>
-            <p>
-              <strong>Email:</strong>{' '}
-              <a 
-                href="mailto:barrieryadav@gmail.com"
-                className="text-red-700 hover:text-red-800 underline"
-              >
-                barrieryadav@gmail.com
-              </a>
-            </p>
+                Create Ticket After Payment
+              </Button>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
