@@ -4,13 +4,16 @@ import { Plans } from '@/components/Plans';
 import { Features } from '@/components/Features';
 import { Contact } from '@/components/Contact';
 import { Navbar } from '@/components/Navbar';
+import { useState } from 'react';
 
 const Index = () => {
+  const [activeTab, setActiveTab] = useState("home");
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-red-50 to-red-100">
       <Navbar />
       <div className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="home" className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-4 bg-red-100">
             <TabsTrigger 
               value="home"
