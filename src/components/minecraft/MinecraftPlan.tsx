@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
 import { HardDrive, Cpu, Database, Globe, Shield } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 interface MinecraftPlanProps {
   name: string;
@@ -72,12 +73,32 @@ export function MinecraftPlan({
 
         <div className="pt-4">
           <p className="text-2xl font-bold text-red-700 mb-4">{price}</p>
-          <Button 
-            className="w-full bg-red-700 hover:bg-red-800 text-white transition-colors"
-            onClick={() => window.open('https://discord.com/channels/1289016492192694314/1290624666762870806', '_blank')}
-          >
-            Create Ticket to Buy
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="w-full bg-red-700 hover:bg-red-800 text-white transition-colors">
+                Purchase Plan
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Payment QR Code</DialogTitle>
+              </DialogHeader>
+              <div className="flex flex-col items-center gap-4">
+                <img 
+                  src="https://cdn.discordapp.com/attachments/1325075159727734947/1325739962913652766/barrier_ka_QR.png?ex=677ce30e&is=677b918e&hm=f8d2cbb2cece5c85eef0c86fb82db0bcb944eea20f2171eaac87a623c2e9e631&"
+                  alt="Payment QR Code"
+                  className="w-64 h-64 object-contain"
+                />
+                <p className="text-sm text-gray-600">Scan QR code to make payment</p>
+                <Button 
+                  className="mt-4"
+                  onClick={() => window.open('https://discord.com/channels/1307274930852724757/1307274931590926352', '_blank')}
+                >
+                  Create Ticket After Payment
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </motion.div>
