@@ -3,7 +3,33 @@ import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
 
-const Tabs = TabsPrimitive.Root
+const TabsContext = React.createContext<{
+  setValue: (value: string) => void;
+} | null>(null);
+
+export function useTabsContext() {
+  const context = React.useContext(TabsContext);
+  if (!context) {
+    throw new Error('useTabsContext must be used within a TabsProvider');
+  }
+  return context;
+}
+
+const Tabs = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
+>(({ className, value, onValueChange, ...props }, ref) => (
+  <TabsContext.Provider value={{ setValue: (v) => onValueChange?.(v) }}>
+    <TabsPrimitive.Root
+      ref={ref}
+      className={cn("w-full", className)}
+      value={value}
+      onValueChange={onValueChange}
+      {...props}
+    />
+  </TabsContext.Provider>
+));
+Tabs.displayName = TabsPrimitive.Root.displayName
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
