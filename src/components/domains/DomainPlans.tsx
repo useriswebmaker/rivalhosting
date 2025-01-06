@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Globe, Ticket } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { useState } from 'react';
 
 const domains = [
   { name: ".online", price: "₹150" },
@@ -12,6 +14,8 @@ const domains = [
 ];
 
 export function DomainPlans() {
+  const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
+
   return (
     <section className="py-16">
       <motion.div 
@@ -36,31 +40,38 @@ export function DomainPlans() {
             className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
             <h3 className="text-2xl font-bold text-red-700 mb-2">{domain.name}</h3>
-            <p className="text-xl text-red-600">{domain.price}</p>
+            <p className="text-xl text-red-600 mb-4">{domain.price}</p>
+            <Button 
+              className="w-full bg-red-700 hover:bg-red-800 text-white"
+              onClick={() => setSelectedDomain(domain.name)}
+            >
+              Purchase Domain
+            </Button>
           </motion.div>
         ))}
       </div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="text-center"
-      >
-        <h3 className="text-2xl font-bold text-red-800 mb-4 flex items-center justify-center gap-2">
-          <Ticket className="w-6 h-6" />
-          Want to get started?
-        </h3>
-        <p className="text-red-700 mb-6">
-          Create a ticket in ticket section to set up your domain today!
-        </p>
-        <Button 
-          className="bg-red-700 hover:bg-red-800 text-white"
-          onClick={() => window.open('https://discord.com/channels/1289016492192694314/1290624666762870806', '_blank')}
-        >
-          Create Ticket
-        </Button>
-      </motion.div>
+      <Dialog open={!!selectedDomain} onOpenChange={() => setSelectedDomain(null)}>
+        <DialogContent className="bg-white">
+          <DialogHeader>
+            <DialogTitle className="text-red-700">Payment Details</DialogTitle>
+          </DialogHeader>
+          <div className="flex flex-col items-center gap-4">
+            <img 
+              src="https://cdn.discordapp.com/attachments/1325075159727734947/1325739962913652766/barrier_ka_QR.png?ex=677ce30e&is=677b918e&hm=f8d2cbb2cece5c85eef0c86fb82db0bcb944eea20f2171eaac87a623c2e9e631&"
+              alt="Payment QR Code"
+              className="w-64 h-64 object-contain"
+            />
+            <p className="text-sm text-gray-600">Scan QR code to make payment</p>
+            <Button 
+              className="mt-4"
+              onClick={() => window.open('https://discord.com/channels/1307274930852724757/1307274931590926352', '_blank')}
+            >
+              Create Ticket After Payment
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

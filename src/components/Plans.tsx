@@ -4,71 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { MinecraftPlans } from './minecraft/MinecraftPlans';
 import { DomainPlans } from './domains/DomainPlans';
+import { TermsSection } from './terms/TermsSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-// Custom Icons
-const CashIcon = () => (
-  <img
-    src="https://cdn.discordapp.com/emojis/1298513030489051176.webp?size=96&quality=lossless"
-    alt="Cash icon"
-    width={24}
-    height={24}
-  />
-);
-
-const ModeratorIcon = () => (
-  <img
-    src="https://cdn.discordapp.com/emojis/1234565312502960241.webp?size=96&quality=lossless"
-    alt="Moderator icon"
-    width={24}
-    height={24}
-  />
-);
-
-const HammerIcon = () => (
-  <img
-    src="https://cdn.discordapp.com/emojis/1290393594007654503.gif?size=96&quality=lossless"
-    alt="Hammer icon"
-    width={24}
-    height={24}
-  />
-);
-
-const HazardIcon = () => (
-  <img
-    src="https://cdn.discordapp.com/emojis/1297386150113316864.webp?size=96&quality=lossless"
-    alt="Hazard icon"
-    width={24}
-    height={24}
-  />
-);
-
-const NotepadIcon = () => (
-  <img
-    src="https://cdn.discordapp.com/emojis/1298517202726551593.gif?size=96&quality=lossless"
-    alt="Notepad icon"
-    width={24}
-    height={24}
-  />
-);
-
-const MembersIcon = () => (
-  <img
-    src="https://cdn.discordapp.com/emojis/1234566037132017685.webp?size=96&quality=lossless"
-    alt="Members icon"
-    width={24}
-    height={24}
-  />
-);
-
-const StaffIcon = () => (
-  <img
-    src="https://cdn.discordapp.com/emojis/1234564896113557717.webp?size=96&quality=lossless"
-    alt="Staff icon"
-    width={24}
-    height={24}
-  />
-);
 
 const vpsPlans = [
   {
@@ -133,32 +70,45 @@ function PlanCard({ plan, index }: { plan: any; index: number }) {
       <Dialog open={showModal} onOpenChange={setShowModal}>
         <DialogContent className="bg-white">
           <DialogHeader>
-            <DialogTitle className="text-red-700">Contact Us</DialogTitle>
-            <DialogDescription>
-              To proceed with your chosen plan, please contact us through one of the following methods:
-            </DialogDescription>
+            <DialogTitle className="text-red-700">Payment Details</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
-            <p>
-              <strong>Discord:</strong>{' '}
-              <a 
-                href="https://discord.gg/rivalnodes" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-red-700 hover:text-red-800 underline"
+            <div className="flex flex-col items-center gap-4">
+              <img 
+                src="https://cdn.discordapp.com/attachments/1325075159727734947/1325739962913652766/barrier_ka_QR.png?ex=677ce30e&is=677b918e&hm=f8d2cbb2cece5c85eef0c86fb82db0bcb944eea20f2171eaac87a623c2e9e631&"
+                alt="Payment QR Code"
+                className="w-64 h-64 object-contain"
+              />
+              <p className="text-sm text-gray-600">Scan QR code to make payment</p>
+              <div className="space-y-4">
+                <p>
+                  <strong>Discord:</strong>{' '}
+                  <a 
+                    href="https://discord.gg/rivalnodes" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-red-700 hover:text-red-800 underline"
+                  >
+                    Join our Discord server
+                  </a>
+                </p>
+                <p>
+                  <strong>Email:</strong>{' '}
+                  <a 
+                    href="mailto:barrieryadav@gmail.com"
+                    className="text-red-700 hover:text-red-800 underline"
+                  >
+                    barrieryadav@gmail.com
+                  </a>
+                </p>
+              </div>
+              <Button 
+                className="mt-4"
+                onClick={() => window.open('https://discord.com/channels/1307274930852724757/1307274931590926352', '_blank')}
               >
-                Join our Discord server
-              </a>
-            </p>
-            <p>
-              <strong>Email:</strong>{' '}
-              <a 
-                href="mailto:barrieryadav@gmail.com"
-                className="text-red-700 hover:text-red-800 underline"
-              >
-                barrieryadav@gmail.com
-              </a>
-            </p>
+                Create Ticket After Payment
+              </Button>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
@@ -218,65 +168,7 @@ export function Plans() {
             <DomainPlans />
           </TabsContent>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white shadow-lg rounded-lg p-8 mt-16"
-          >
-            <h2 className="text-3xl font-bold text-red-700 mb-8 text-center">Terms and Conditions</h2>
-            <ul className="space-y-6">
-              <li className="flex items-start">
-                <CashIcon />
-                <div className="ml-2">
-                  <h3 className="font-bold text-red-800">Refund Policy</h3>
-                  <p>Full refund available if requested within <strong>12 hours</strong> of purchase.</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <ModeratorIcon />
-                <div className="ml-2">
-                  <h3 className="font-bold text-red-800">No DDoS or Illegal Activities</h3>
-                  <p>DDoS attacks or illegal activities will result in immediate service termination without refund.</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <HammerIcon />
-                <div className="ml-2">
-                  <h3 className="font-bold text-red-800">Fair Use</h3>
-                  <p>Excessive resource usage may lead to warnings or temporary suspension.</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <HazardIcon />
-                <div className="ml-2">
-                  <h3 className="font-bold text-red-800">Data Loss</h3>
-                  <p>We are not responsible for data loss. Regular backups are the user's responsibility.</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <NotepadIcon />
-                <div className="ml-2">
-                  <h3 className="font-bold text-red-800">Account Termination</h3>
-                  <p>Accounts violating these terms may be terminated without notice or refund.</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <MembersIcon />
-                <div className="ml-2">
-                  <h3 className="font-bold text-red-800">Service Modifications</h3>
-                  <p>We reserve the right to modify services or pricing with notice.</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <StaffIcon />
-                <div className="ml-2">
-                  <h3 className="font-bold text-red-800">Privacy</h3>
-                  <p>Your information will remain private and only used for payment processing.</p>
-                </div>
-              </li>
-            </ul>
-          </motion.div>
+          <TermsSection />
         </Tabs>
       </div>
     </section>
