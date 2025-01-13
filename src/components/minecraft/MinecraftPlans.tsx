@@ -101,43 +101,19 @@ function MinecraftPlanCard({ plan, index }: { plan: any; index: number }) {
           <DialogHeader>
             <DialogTitle className="text-red-700">Payment Details</DialogTitle>
           </DialogHeader>
-          <div className="space-y-4">
-            <div className="flex flex-col items-center gap-4">
-              <img 
-                src="/src/barrier_ka_QR.png"
-                alt="Payment QR Code"
-                className="w-64 h-64 object-contain"
-              />
-              <p className="text-sm text-gray-600">Scan QR code to make payment</p>
-              <div className="space-y-4">
-                <p>
-                  <strong>Discord:</strong>{' '}
-                  <a 
-                    href="https://discord.gg/rivalnodes" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-red-700 hover:text-red-800 underline"
-                  >
-                    Join our Discord server
-                  </a>
-                </p>
-                <p>
-                  <strong>Email:</strong>{' '}
-                  <a 
-                    href="mailto:barrieryadav@gmail.com"
-                    className="text-red-700 hover:text-red-800 underline"
-                  >
-                    barrieryadav@gmail.com
-                  </a>
-                </p>
-              </div>
-              <Button 
-                className="mt-4"
-                onClick={() => window.open('https://discord.com/channels/1307274930852724757/1307274931590926352', '_blank')}
-              >
-                Create Ticket After Payment
-              </Button>
-            </div>
+          <div className="flex flex-col items-center gap-4">
+            <img 
+              src="/src/assets/images/qr-code.png"
+              alt="Payment QR Code"
+              className="w-64 h-64 object-contain"
+            />
+            <p className="text-sm text-gray-600">Scan QR code to make payment</p>
+            <Button 
+              className="mt-4"
+              onClick={() => window.open('https://discord.com/channels/1307274930852724757/1307274931590926352', '_blank')}
+            >
+              Create Ticket After Payment
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

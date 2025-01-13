@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import logoImage from '../assets/images/logo.jpg';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const logo = "/src/b5b2ecf6-9e30-40ab-8fb5-386a40d7654f.jpg";
 
   return (
     <motion.nav 
@@ -20,7 +20,7 @@ export function Navbar() {
           whileTap={{ scale: 0.95 }}
         >
           <img
-            src={logo}
+            src={logoImage}
             alt="Rival Node Logo"
             className="w-10 h-10 rounded-full"
           />

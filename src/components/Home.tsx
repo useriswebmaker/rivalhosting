@@ -5,8 +5,7 @@ import { loadSlim } from "tsparticles-slim";
 import type { Engine } from 'tsparticles-engine';
 import { Button } from "@/components/ui/button";
 import { useTabsContext } from "@/components/ui/tabs";
-
-const LOGO_URL = "/src/b5b2ecf6-9e30-40ab-8fb5-386a40d7654f.jpg";
+import logoImage from '../assets/images/logo.jpg';
 
 export function Home() {
   const { setValue } = useTabsContext();
@@ -127,7 +126,7 @@ export function Home() {
               className="md:w-1/2 flex justify-center"
             >
               <img
-                src={LOGO_URL}
+                src={logoImage}
                 alt="Rival Node Logo"
                 className="w-[300px] h-[300px] rounded-full shadow-2xl"
               />
@@ -138,4 +137,3 @@ export function Home() {
     </section>
   );
 }
-
