@@ -6,7 +6,7 @@ import type { Engine } from 'tsparticles-engine';
 import { Button } from "@/components/ui/button";
 import { useTabsContext } from "@/components/ui/tabs";
 
-const LOGO_URL = "https://cdn.discordapp.com/attachments/1325075159727734947/1325363813083775007/b5b2ecf6-9e30-40ab-8fb5-386a40d7654f.jpg?ex=677b84bd&is=677a333d&hm=45b7b56606e0f0c198ffb77ce4b5e2d7e42797f99bae61d5a596dc82aa22f2e8&";
+const LOGO_URL = "/logo.jpg";
 
 export function Home() {
   const { setValue } = useTabsContext();

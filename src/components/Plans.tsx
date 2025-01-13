@@ -75,7 +75,7 @@ function PlanCard({ plan, index }: { plan: any; index: number }) {
           <div className="space-y-4">
             <div className="flex flex-col items-center gap-4">
               <img 
-                src="https://cdn.discordapp.com/attachments/1325075159727734947/1325739962913652766/barrier_ka_QR.png?ex=677ce30e&is=677b918e&hm=f8d2cbb2cece5c85eef0c86fb82db0bcb944eea20f2171eaac87a623c2e9e631&"
+                src="/barrier_qr.png"
                 alt="Payment QR Code"
                 className="w-64 h-64 object-contain"
               />
