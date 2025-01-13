@@ -1,113 +1,168 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MinecraftPlan } from './MinecraftPlan';
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const minecraftPlans = [
   {
-    name: "Dirt Plan",
-    ram: "4 GB",
-    cpu: "100%",
-    disk: "25GB",
-    backups: "2",
-    databases: "2",
-    ports: "2",
-    subdomains: "1",
-    ddosProtection: "4gbps",
-    price: "₹180/m"
+    name: "BASIC PLAN",
+    icon: "🌟",
+    specs: [
+      "100% CPU",
+      "4GB RAM",
+      "10GB SSD",
+      "Amd Epyc"
+    ],
+    price: "₹119/m"
   },
   {
-    name: "Stone Plan",
-    ram: "6 GB",
-    cpu: "150%",
-    disk: "50GB",
-    backups: "4",
-    databases: "4",
-    ports: "4",
-    subdomains: "2",
-    ddosProtection: "6gbps",
-    price: "₹270/m"
+    name: "STARTER PLAN",
+    icon: "🚀",
+    specs: [
+      "120% CPU",
+      "8GB RAM",
+      "20GB SSD",
+      "Amd Epyc"
+    ],
+    price: "₹209/m"
   },
   {
-    name: "Coal Plan",
-    ram: "8 GB",
-    cpu: "200%",
-    disk: "75GB",
-    backups: "6",
-    databases: "6",
-    ports: "6",
-    subdomains: "3",
-    ddosProtection: "8gbps",
-    price: "₹360/m"
+    name: "GOLD PLAN",
+    icon: "👑",
+    specs: [
+      "180% CPU",
+      "16GB RAM",
+      "30GB SSD",
+      "Amd Epyc"
+    ],
+    price: "₹349/m"
   },
   {
-    name: "Iron Plan",
-    ram: "12 GB",
-    cpu: "300%",
-    disk: "100GB",
-    backups: "8",
-    databases: "8",
-    ports: "8",
-    subdomains: "4",
-    ddosProtection: "12gbps",
-    price: "₹540/m"
+    name: "ADVANCED PLAN",
+    icon: "⚡",
+    specs: [
+      "250% CPU",
+      "32GB RAM",
+      "50GB SSD",
+      "Amd Epyc"
+    ],
+    price: "₹599/m"
   },
   {
-    name: "Gold Plan",
-    ram: "16 GB",
-    cpu: "400%",
-    disk: "150GB",
-    backups: "10",
-    databases: "10",
-    ports: "10",
-    subdomains: "5",
-    ddosProtection: "16gbps",
-    price: "₹720/m"
-  },
-  {
-    name: "Diamond Plan",
-    ram: "UNLIMITED GB",
-    cpu: "UNLIMITED%",
-    disk: "UNLIMITED GB",
-    backups: "UNLIMITED",
-    databases: "UNLIMITED",
-    ports: "UNLIMITED",
-    subdomains: "UNLIMITED",
-    ddosProtection: "1tbps",
-    price: "₹2,300/m"
+    name: "RIVAL PLAN",
+    icon: "🔥",
+    specs: [
+      "600% CPU",
+      "64GB RAM",
+      "200GB SSD",
+      "Amd Epyc"
+    ],
+    price: "₹999/m"
   }
 ];
 
+function MinecraftPlanCard({ plan, index }: { plan: any; index: number }) {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <>
+      <motion.div 
+        className="bg-white shadow-lg rounded-lg overflow-hidden"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        whileHover={{ scale: 1.05 }}
+      >
+        <div className="bg-red-700 text-white p-4 flex items-center justify-between">
+          <h3 className="text-xl font-bold">{plan.name}</h3>
+          <span className="text-2xl">{plan.icon}</span>
+        </div>
+        <div className="p-6">
+          <ul className="space-y-3 mb-6">
+            {plan.specs.map((spec: string, i: number) => (
+              <li key={i} className="flex items-center text-gray-600">
+                <span className="mr-2">•</span>
+                {spec}
+              </li>
+            ))}
+          </ul>
+          <p className="text-2xl font-bold text-red-700 mb-4">{plan.price}</p>
+          <Button 
+            className="w-full bg-red-700 hover:bg-red-800 text-white transition-colors"
+            onClick={() => setShowModal(true)}
+          >
+            Choose Plan
+          </Button>
+        </div>
+      </motion.div>
+
+      <Dialog open={showModal} onOpenChange={setShowModal}>
+        <DialogContent className="bg-white">
+          <DialogHeader>
+            <DialogTitle className="text-red-700">Payment Details</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div className="flex flex-col items-center gap-4">
+              <img 
+                src="/src/barrier_ka_QR.png"
+                alt="Payment QR Code"
+                className="w-64 h-64 object-contain"
+              />
+              <p className="text-sm text-gray-600">Scan QR code to make payment</p>
+              <div className="space-y-4">
+                <p>
+                  <strong>Discord:</strong>{' '}
+                  <a 
+                    href="https://discord.gg/rivalnodes" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-red-700 hover:text-red-800 underline"
+                  >
+                    Join our Discord server
+                  </a>
+                </p>
+                <p>
+                  <strong>Email:</strong>{' '}
+                  <a 
+                    href="mailto:barrieryadav@gmail.com"
+                    className="text-red-700 hover:text-red-800 underline"
+                  >
+                    barrieryadav@gmail.com
+                  </a>
+                </p>
+              </div>
+              <Button 
+                className="mt-4"
+                onClick={() => window.open('https://discord.com/channels/1307274930852724757/1307274931590926352', '_blank')}
+              >
+                Create Ticket After Payment
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
+
 export function MinecraftPlans() {
   return (
-    <section className="py-16">
+    <div className="py-12">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-bold text-red-800 mb-4">
-          BEST MINECRAFT CHEAP PLANS
-        </h2>
-        <p className="text-red-900 text-lg">
-          Choose your perfect Minecraft hosting plan
-        </p>
+        <h1 className="text-4xl font-bold text-red-800 mb-4">Minecraft Hosting Plans</h1>
+        <p className="text-red-900 text-lg">Choose the perfect Minecraft hosting plan for your server</p>
       </motion.div>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {minecraftPlans.map((plan, index) => (
-          <MinecraftPlan key={index} {...plan} index={index} />
+          <MinecraftPlanCard key={index} plan={plan} index={index} />
         ))}
       </div>
-
-      <div className="mt-8 text-center space-y-4">
-        <p className="text-lg font-semibold">Available Locations:</p>
-        <div className="flex justify-center gap-4">
-          <span>🇮🇳 India</span>
-          <span>🇸🇬 Singapore</span>
-          <span>🇩🇪 Germany</span>
-        </div>
-        <p className="text-sm text-gray-600">RAM Type: DDR4</p>
-      </div>
-    </section>
+    </div>
   );
 }
