@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const logo = "/logo.jpg";
+  const logo = "/src/b5b2ecf6-9e30-40ab-8fb5-386a40d7654f.jpg";
 
   return (
     <motion.nav 

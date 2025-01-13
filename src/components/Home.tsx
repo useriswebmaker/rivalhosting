@@ -6,7 +6,7 @@ import type { Engine } from 'tsparticles-engine';
 import { Button } from "@/components/ui/button";
 import { useTabsContext } from "@/components/ui/tabs";
 
-const LOGO_URL = "/logo.jpg";
+const LOGO_URL = "/src/b5b2ecf6-9e30-40ab-8fb5-386a40d7654f.jpg";
 
 export function Home() {
   const { setValue } = useTabsContext();
@@ -138,3 +138,4 @@ export function Home() {
     </section>
   );
 }
+

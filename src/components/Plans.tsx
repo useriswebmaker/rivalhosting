@@ -75,7 +75,7 @@ function PlanCard({ plan, index }: { plan: any; index: number }) {
           <div className="space-y-4">
             <div className="flex flex-col items-center gap-4">
               <img 
-                src="/barrier_qr.png"
+                src="/src/barrier_ka_QR.png"
                 alt="Payment QR Code"
                 className="w-64 h-64 object-contain"
               />
