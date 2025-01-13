@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import logoImage from '../assets/images/logo.jpg';
+import logoImage from '@/assets/images/logo.jpg';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

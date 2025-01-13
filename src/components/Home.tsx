@@ -5,7 +5,7 @@ import { loadSlim } from "tsparticles-slim";
 import type { Engine } from 'tsparticles-engine';
 import { Button } from "@/components/ui/button";
 import { useTabsContext } from "@/components/ui/tabs";
-import logoImage from '../assets/images/logo.jpg';
+import logoImage from '@/assets/images/logo.jpg';
 
 export function Home() {
   const { setValue } = useTabsContext();
