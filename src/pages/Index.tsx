@@ -13,7 +13,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-red-50 to-red-100">
       <Navbar />
       <div className="container mx-auto px-4 py-8">
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs defaultValue="home" value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="grid w-full grid-cols-4 bg-red-100">
             <TabsTrigger 
               value="home"

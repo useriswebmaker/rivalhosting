@@ -26,9 +26,11 @@ export function Plans() {
             <p className="text-red-900 text-xl md:text-2xl mb-8">Choose the best plan that suits your needs</p>
           </motion.div>
           
-          <VPSPlans />
-          <MinecraftPlans />
-          <DomainPlans />
+          <div className="space-y-20">
+            <VPSPlans />
+            <MinecraftPlans />
+            <DomainPlans />
+          </div>
         </div>
       </div>
     </section>
