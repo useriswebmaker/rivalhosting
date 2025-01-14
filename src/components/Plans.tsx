@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Button } from "@/components/ui/button";
 import { useTabsContext } from "@/components/ui/tabs";
 import { MinecraftPlans } from './minecraft/MinecraftPlans';
 import { DomainPlans } from './domains/DomainPlans';
+import { VPSPlans } from './vps/VPSPlans';
 
 export function Plans() {
   const { setValue } = useTabsContext();
@@ -26,6 +26,7 @@ export function Plans() {
             <p className="text-red-900 text-xl md:text-2xl mb-8">Choose the best plan that suits your needs</p>
           </motion.div>
           
+          <VPSPlans />
           <MinecraftPlans />
           <DomainPlans />
         </div>
