@@ -103,7 +103,7 @@ function MinecraftPlanCard({ plan, index }: { plan: any; index: number }) {
           </DialogHeader>
           <div className="flex flex-col items-center gap-4">
             <img 
-              src="/src/assets/images/qr-code.png"
+              src="/src/barrier_ka_QR.png"
               alt="Payment QR Code"
               className="w-64 h-64 object-contain"
             />
