@@ -2,6 +2,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const minecraftPlans = [
   {
@@ -67,7 +74,7 @@ function MinecraftPlanCard({ plan, index }: { plan: any; index: number }) {
   return (
     <>
       <motion.div 
-        className="bg-white shadow-lg rounded-lg overflow-hidden"
+        className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-sm mx-auto"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -134,10 +141,18 @@ export function MinecraftPlans() {
         <p className="text-red-900 text-lg">Choose the perfect Minecraft hosting plan for your server</p>
       </motion.div>
       
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {minecraftPlans.map((plan, index) => (
-          <MinecraftPlanCard key={index} plan={plan} index={index} />
-        ))}
+      <div className="max-w-6xl mx-auto px-4">
+        <Carousel className="w-full">
+          <CarouselContent>
+            {minecraftPlans.map((plan, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <MinecraftPlanCard plan={plan} index={index} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
     </div>
   );
