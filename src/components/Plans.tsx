@@ -1,17 +1,9 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useTabsContext } from "@/components/ui/tabs";
 import { MinecraftPlans } from './minecraft/MinecraftPlans';
 import { DomainPlans } from './domains/DomainPlans';
 import { VPSPlans } from './vps/VPSPlans';
 
 export function Plans() {
-  const { setValue } = useTabsContext();
-
-  useEffect(() => {
-    setValue("plans");
-  }, [setValue]);
-
   return (
     <section className="min-h-screen bg-gradient-to-b from-red-50 to-red-100 relative overflow-hidden">
       <div className="relative z-10">
